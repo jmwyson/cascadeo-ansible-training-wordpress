@@ -9,6 +9,7 @@
   unarchive: 
     src: /tmp/latest.tar.gz
     dest: /tmp/
+    remote_src: yes
 
 - name: copy wordpress files to webserver
   copy:
@@ -16,6 +17,7 @@
     dest: /var/www/html/
     owner: apache
     group: apache
+    remote_src: yes
 
 - name: copy template file to webserver
   template:
