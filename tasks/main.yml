@@ -11,13 +11,11 @@
     dest: /tmp/
     remote_src: yes
 
-- name: copy wordpress files to webserver
-  copy:
+# copy does not yet support recursive directory
+- synchronize:
     src: /tmp/wordpress/
     dest: /var/www/html/
-    owner: apache
-    group: apache
-    remote_src: yes
+  delegate_to: "{{ inventory_hostname }}"
 
 - name: copy template file to webserver
   template:
