@@ -1,2 +1,24 @@
 ---
 # tasks file for wordpress
+- name: download wordpress
+  get_url: 'http://wordpress.org/latest.tar.gz'
+  dest: '/tmp/latest.tar.gz'
+
+- name: unarchive wordpress
+  unarchive: 
+    src: /tmp/latest.tar.gz
+    dest: /tmp/
+
+- name: copy wordpress files to webserver
+  copy:
+    src: /tmp/wordpress/
+    dest: /var/www/html/
+    owner: apache
+    group: apache
+
+- name: copy template file to webserver
+  template:
+    src: wp-config.php.j2
+    dest: /var/www/html/wp-config.php
+    owner: apache
+    group: apache
