@@ -11,6 +11,10 @@
     dest: /tmp/
     remote_src: yes
 
+- name: install rsync required by synchronize
+  yum:
+    name: rsync
+
 # copy does not yet support recursive directory
 - synchronize:
     src: /tmp/wordpress/
