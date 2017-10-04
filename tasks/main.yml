@@ -10,11 +10,15 @@
     src: /tmp/latest.tar.gz
     dest: /tmp/
     remote_src: yes
+    owner: apache
+    group: apache
 
 - name: install rsync required by synchronize
   yum:
     name: rsync
     state: latest
+    owner: apache
+    group: apache
 
 # copy does not yet support recursive directory
 - synchronize:
