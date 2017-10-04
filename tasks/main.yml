@@ -1,8 +1,9 @@
 ---
 # tasks file for wordpress
 - name: download wordpress
-  get_url: 'http://wordpress.org/latest.tar.gz'
-  dest: '/tmp/latest.tar.gz'
+  get_url: 
+    url: 'http://wordpress.org/latest.tar.gz'
+    dest: '/tmp/latest.tar.gz'
 
 - name: unarchive wordpress
   unarchive: 
